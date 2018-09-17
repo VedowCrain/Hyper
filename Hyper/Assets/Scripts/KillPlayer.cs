@@ -26,6 +26,7 @@ public class KillPlayer : MonoBehaviour
         {
             Destroy(other.GetComponent<Rigidbody>());
             FinalScore.Instance.Show();
+            Time.timeScale = 0;
         }
         else if(other.gameObject.CompareTag("World"))
         {
