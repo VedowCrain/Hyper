@@ -11,6 +11,7 @@ public class Pacdot : MonoBehaviour
     public float CurrentTime;
     public Rigidbody Bullet;
 
+    protected Gradient gradient;
     private void Start()
     {
         TriMat.color = TriColor;
@@ -23,7 +24,7 @@ public class Pacdot : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("Color " + TriColor);
+            print("Color Tri" + TriColor);
             ScoreManager.Instance.Addscore();
             Destroy(gameObject);
         }
@@ -37,6 +38,13 @@ public class Pacdot : MonoBehaviour
         {
             Rigidbody clone;
             clone = Instantiate(Bullet, transform.position, transform.rotation) as Rigidbody;
+            KillPlayer kill = clone.GetComponent<KillPlayer>();
+            if (kill != null)
+            {
+                kill.trail.startColor = TriColor;
+                kill.trail.endColor = new Color(TriColor.r, TriColor.g, TriColor.b, 0f);
+
+            }
             CurrentTime = Timer;
         }
     }

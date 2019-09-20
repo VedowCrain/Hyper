@@ -79,6 +79,10 @@ public class ScoreManager : MonoBehaviour
         {
             foreach (HighScore hs in highScores)
             {
+                if (string.IsNullOrEmpty(hs.name))
+                {
+                    hs.name = "Anon";
+                }
                 file.WriteLine(hs.SerializedString());
             }
         }

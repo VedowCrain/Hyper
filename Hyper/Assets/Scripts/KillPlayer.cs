@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-
+    public TrailRenderer trail;
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -24,9 +23,8 @@ public class KillPlayer : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.GetComponent<Rigidbody>());
             FinalScore.Instance.Show();
-            Time.timeScale = 0;
+            GameMannger.gameState = GameState.GameOver;
         }
         else if(other.gameObject.CompareTag("World"))
         {

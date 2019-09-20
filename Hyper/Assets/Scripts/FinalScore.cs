@@ -40,7 +40,7 @@ public class FinalScore : MonoBehaviour
         ScoreManager.Instance.AddHighScore(nameInput.text);
         GetComponent<CanvasGroup>().alpha = 0;
         SceneManager.LoadScene(0);
-        
+        Time.timeScale = 1;
     }
 
 }

@@ -18,6 +18,8 @@ public class TriSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameMannger.gameState != GameState.Playing) return;
+
         CurrentTimer -= Time.deltaTime;
 
         if (CurrentTimer <= 0)

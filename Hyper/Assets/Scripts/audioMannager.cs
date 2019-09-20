@@ -7,6 +7,9 @@ public class audioMannager : MonoBehaviour
 {
     public AudioMixer Mixer;
 
+    public AudioClip[] Music;
+    public AudioSource MusicAudioSource;
+
     public string masterParam = "Master";
     public string ambienceParam = "Ambience";
     public string musicParam = "Music";
@@ -36,5 +39,11 @@ public class audioMannager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         SetVolume(musicParam, volume);
+    }
+
+    void MusicPicker()
+    {
+        var MusicClip = Random.Range(0, Music.Length);
+        MusicAudioSource.clip = MusicClip;
     }
 }
